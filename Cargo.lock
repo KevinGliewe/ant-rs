@@ -92,7 +92,7 @@ dependencies = [
 
 [[package]]
 name = "ant-rs"
-version = "0.1.8"
+version = "0.0.0"
 dependencies = [
  "chrono",
  "clap",
