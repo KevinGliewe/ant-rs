@@ -149,10 +149,16 @@ pub fn build_ssh_process(name: &str, host: &Host) -> Command {
         ));
     }
 
-    cmd.arg("-o")
-        .arg("IdentitiesOnly=yes")
-        .arg("-i")
-        .arg(&host.identity_file);
+    match host.identity_file 
+    {
+        Some(ref f) => {
+            cmd.arg("-o")
+                .arg("IdentitiesOnly=yes")
+                .arg("-i")
+                .arg(&f);
+        },
+        None => {}
+    }
 
     // server connection part
     cmd.arg("-p")

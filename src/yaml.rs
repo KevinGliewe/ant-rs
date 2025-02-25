@@ -11,7 +11,7 @@ pub struct Root {
 pub struct Host {
     pub hostname: String,
     pub port: Option<u16>,
-    pub identity_file: String,
+    pub identity_file: Option<String>,
     pub user: String,
     pub local_forward: Option<Vec<Forward>>,
     pub remote_forward: Option<Vec<Forward>>,
