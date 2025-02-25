@@ -56,7 +56,8 @@ pub fn build_ssh_process(name: &str, host: &Host) -> Command {
     }
 
     // set log path
-    let log = TMP_DIR.join(format!("ant_{}.log", Local::now().to_rfc3339()));
+    let timestamp = Local::now().format("%Y-%m-%dT%H-%M-%S").to_string();
+    let log = TMP_DIR.join(format!("ant_{}.log", timestamp));
     LOG_FILE.set(log.to_str().unwrap().to_string()).unwrap();
     cmd.arg("-E").arg(&log);
 
